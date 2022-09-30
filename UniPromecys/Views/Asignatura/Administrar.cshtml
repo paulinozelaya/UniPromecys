@@ -1,0 +1,81 @@
+﻿@model UniPromecys.Models.Asignatura.AsignaturaAdminModel
+@*@{
+        Layout = null;
+    }*@
+@*<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">*@
+<div class="card">
+    <div class="card-header">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group d-flex justify-content-start">
+                    <a class="btn btn-success" href="/Asignatura/RegistrarAsignatura"><i class="fa fa-plus"></i>Agregar</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group d-flex justify-content-end">
+                    <label>Promecys -> Catalogos -> Asignatura</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <hr />
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>
+                                    Nombre Completo
+                                </th>
+                                <th>
+                                    Carnet
+                                </th>
+                                <th>
+                                    Solvencia
+                                </th>
+                                <th>
+                                    Opciones
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model.ListadoAsignaturas)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.Nombre
+                                    </td>
+                                    <td>
+                                        @item.CodigoInterno
+                                    </td>
+                                    <td>
+                                        @item.Descripcion
+                                    </td>
+                                    <td>
+                                        @item.FechaCreacion
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-info" title="Editar" href="/Asignatura/Editar?IdAsignatura=@item.Id"><i class="fa fa-edit"></i></a>
+                                        <a class="btn btn-danger" title="Eliminar" href="/Asignatura/Eliminar?IdAsignatura=@item.Id"><i class="fa fa-trash"></i></a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.table').DataTable();
+        });
+    </script>
+}
+
+
+@*<script src="~/Assets/vendor/bootstrap/js/bootstrap.min.js"></script>*@

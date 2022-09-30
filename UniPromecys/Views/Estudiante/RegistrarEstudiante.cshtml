@@ -1,0 +1,51 @@
+﻿@model UniPromecys.Models.Estudiante.EstudianteItemModel
+@*@{
+        Layout = null;
+    }*@
+@using (Html.BeginForm("GuardarEstudiante", "Estudiante", FormMethod.Post))
+{
+    <!DOCTYPE html>
+
+    <html>
+    <head>
+        <meta name="viewport" content="width=device-width" />
+        <title>Registrar Estudiante</title>
+    </head>
+    <body>
+        <form>
+            <div class="mb-3">
+                <label class="form-label">Nombre Completo</label>
+                @Html.TextBoxFor(x => x.NombreCompleto,new { @class= "form-control" , @id="txtNombreCompleto" , @required = true})
+                @* <input type="text" class="form-control" id="Nombre" name="Nombre" value="@Model.Nombre" aria-describedby="emailHelp" required>*@
+                @*<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>*@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Carnet</label>
+                @Html.TextBoxFor(x => x.Carnet, new { @class = "form-control", @id = "txtCarnet", @required = true})
+                @*<input type="text" class="form-control" id="CodigoInterno" name="CodigoInterno" required>*@
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Solvencia</label>
+                @Html.TextBoxFor(x => x.Solvencia, new { @class = "form-control", @id = "txtSolvencia", @required = true})
+                @*<textarea type="" class="form-control" id="Descripcion" name="Descripcion" required></textarea>*@
+            </div>
+            <div class="align-bottom">
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a class="btn btn-warning" href="/Estudiante/Administrar">Regresar</a>
+            </div>
+
+        </form>
+    </body>
+    </html>
+}
+@section scripts{
+@*    <script>
+        $(document).ready(function () {
+        @if (Model.Accion == AccionesControlador.Acciones.Editar.ToString())
+        {
+            @:$("#txtCodigoInterno").prop('readonly', true);
+        }
+                    });
+    </script>*@
+}
+
